@@ -164,45 +164,53 @@ body {
 }
 
 /* How It Works */
-.how-it-works {
-    padding: 5vw 5vw;
-    text-align: center;
-    background: #fff;
-    border-radius: 15px;
-    margin-top: 2rem;
-    font-family: var(--font-family-main); /* Apply to how-it-works */
+/* Default styling for steps-container */
+.steps-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    align-items: center;
+    gap: 20px; /* Space between steps */
 }
 
-.how-it-works h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-family: var(--font-family-main); /* Apply to h2 */
+/* For big screens (e.g., above 768px), display steps in a row */
+@media (min-width: 768px) {
+    .steps-container {
+        flex-direction: row; /* Arrange steps horizontally */
+        justify-content: space-between; /* Distribute space evenly */
+        align-items: flex-start; /* Align items at the top */
+    }
+
+    .step {
+        flex: 1; /* Each step takes equal width */
+        max-width: 30%; /* Limit the width of each step */
+        text-align: center; /* Center-align text */
+    }
+
+    .arrow {
+        font-size: 24px; /* Size of the arrow */
+        align-self: center; /* Center the arrow vertically */
+        margin: 0 10px; /* Add horizontal spacing around arrows */
+    }
 }
 
-.how-it-works .step {
-    display: block;
-    width: 100%;
-    margin: 2rem 0;
-    font-family: var(--font-family-main); /* Apply to step */
+/* General styling for step items */
+.step {
+    padding: 20px;
 }
 
-.how-it-works .step img {
-    width: clamp(40px, 10vw, 60px);
+.step img {
+    max-width: 100%;
     height: auto;
-    margin-bottom: 1rem;
 }
 
-.how-it-works .step h3 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-family: var(--font-family-main); /* Apply to h3 */
+.step h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
 }
 
-.how-it-works .step p {
+.step p {
+    font-size: 1rem;
     color: #666;
-    font-family: var(--font-family-main); /* Apply to p */
-}
-
-.arrow {
-    display: none;
 }
 
 /* Our Services */
@@ -263,22 +271,37 @@ body {
     font-family: var(--font-family-main); /* Apply to header */
 }
 
+/* Updated fleet-container with responsive behavior */
 .fleet-container {
     display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
     gap: 1.5rem;
     justify-content: center;
 }
 
+/* Updated fleet-item with responsive width */
 .fleet-item {
     background: #fff;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 30%;
+    width: 100%; /* Full width on small screens */
     font-family: var(--font-family-main); /* Apply to fleet-item */
 }
 
+/* Media query for big screens */
+@media (min-width: 768px) {
+    .fleet-container {
+        flex-direction: row; /* Align horizontally on big screens */
+    }
+
+    .fleet-item {
+        width: 30%; /* Original width for big screens */
+    }
+}
+
+/* Rest of the styles remain unchanged */
 .fleet-item img {
     width: 100%;
     border-radius: 10px;
