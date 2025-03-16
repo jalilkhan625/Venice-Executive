@@ -1,0 +1,590 @@
+:root {
+    --primary-color: #dc3545;
+    --spacing-unit: 1rem;
+    --font-family-main: "DM Sans", sans-serif; /* Define DM Sans as the main font family */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: var(--font-family-main); /* Apply to body as a global fallback */
+}
+
+.navbar-custom {
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
+    padding: 1rem 5%;
+    font-family: var(--font-family-main); /* Apply to navbar */
+}
+
+.navbar-custom.scrolled {
+    background-color: #000;
+}
+
+.navbar-brand {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #000000;
+    font-family: var(--font-family-main); /* Apply to navbar brand */
+}
+
+.nav-link {
+    margin-right: var(--spacing-unit);
+    color: #000000 !important;
+    font-family: var(--font-family-main); /* Apply to nav links */
+}
+
+/* Dropdown menu styling */
+.navbar-custom .dropdown-menu {
+    background-color: #FFFFFF;
+    font-family: var(--font-family-main); /* Apply to dropdown menu */
+}
+
+.navbar-custom .dropdown-item {
+    color: #000000;
+    font-family: var(--font-family-main); /* Apply to dropdown items */
+}
+
+.navbar-custom .dropdown-item:hover {
+    color: #000000;
+    background-color: #f8f9fa;
+}
+
+.navbar-custom.scrolled .nav-link,
+.navbar-custom.scrolled .navbar-brand,
+.navbar-custom.scrolled .phone-link,
+.navbar-custom.scrolled .form-select {
+    color: #fff !important;
+}
+
+.phone-icon {
+    margin-right: 0.5rem;
+}
+
+.phone-link {
+    color: #000000;
+    font-family: var(--font-family-main); /* Apply to phone link */
+}
+
+.lang-flag {
+    width: clamp(16px, 2vw, 20px);
+    height: auto;
+    margin-right: 5px; /* Adjusted from margin-left for consistency with design */
+}
+
+.form-select {
+    color: #000000;
+    font-family: var(--font-family-main); /* Apply to form select */
+}
+
+.login-btn {
+    margin-left: var(--spacing-unit);
+    color: #000;
+    border-color: #000;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family-main); /* Apply to login button */
+}
+
+.navbar-custom.scrolled .login-btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Main Container */
+.main-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border-radius: 15px; /* Rounds the edges of the main container */
+    font-family: var(--font-family-main); /* Apply to main container */
+}
+
+/* Banner Section */
+.banner-section {
+    position: relative;
+    min-height: 80vh; /* Increased height */
+    height: auto;
+    background: url('/images/banner4.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Makes the background stationary when scrolling */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw 5vw;
+    border-radius: 15px; /* Rounds all edges of the banner */
+    border-top-left-radius: 15px; /* Specifically rounds top-left */
+    border-top-right-radius: 15px; /* Specifically rounds top-right */
+    overflow: hidden; /* Ensures content respects the rounded edges */
+    margin-top: 2rem; /* Adds space between navbar and banner */
+    font-family: var(--font-family-main); /* Apply to banner section */
+}
+
+.banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    border-radius: 15px; /* Matches the banner's rounded edges */
+    border-top-left-radius: 15px; /* Specifically rounds top-left of overlay */
+    border-top-right-radius: 15px; /* Specifically rounds top-right of overlay */
+}
+
+.banner-section .content {
+    z-index: 1;
+    font-family: var(--font-family-main); /* Apply to content */
+}
+
+.banner-section h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    font-family: var(--font-family-main); /* Apply to h1 */
+}
+
+.banner-section p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-family: var(--font-family-main); /* Apply to p */
+}
+
+.banner-section .btn {
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-family-main); /* Apply to button */
+}
+
+.banner-section .booking-widget {
+    position: static;
+    width: 90%;
+    max-width: 300px;
+    margin: 2rem auto;
+    transform: none;
+    z-index: 2;
+}
+
+/* How It Works */
+.how-it-works {
+    padding: 5vw 5vw;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin-top: 2rem;
+    font-family: var(--font-family-main); /* Apply to how-it-works */
+}
+
+.how-it-works h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-family: var(--font-family-main); /* Apply to h2 */
+}
+
+.how-it-works .step {
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    font-family: var(--font-family-main); /* Apply to step */
+}
+
+.how-it-works .step img {
+    width: clamp(40px, 10vw, 60px);
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.how-it-works .step h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-family: var(--font-family-main); /* Apply to h3 */
+}
+
+.how-it-works .step p {
+    color: #666;
+    font-family: var(--font-family-main); /* Apply to p */
+}
+
+.arrow {
+    display: none;
+}
+
+/* Our Services */
+.our-services {
+    padding: 5vw 5vw;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    margin-top: 2rem;
+    font-family: var(--font-family-main); /* Apply to our-services */
+}
+
+.our-services h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-family: var(--font-family-main); /* Apply to h2 */
+}
+
+.our-services .service-item {
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    text-align: left;
+    font-family: var(--font-family-main); /* Apply to service-item */
+}
+
+.our-services .service-item img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.our-services .service-item h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-family: var(--font-family-main); /* Apply to h3 */
+}
+
+.our-services .service-item p {
+    color: #666;
+    font-family: var(--font-family-main); /* Apply to p */
+}
+
+/* Our Fleet */
+.our-fleet {
+    padding: 5vw 5vw;
+    text-align: center;
+    background: #F6F6F6; /* Updated Background Color */
+    border-radius: 15px;
+    margin-top: 2rem;
+    font-family: var(--font-family-main); /* Apply to our-fleet */
+}
+
+.our-fleet .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-family: var(--font-family-main); /* Apply to header */
+}
+
+.fleet-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.fleet-item {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+    font-family: var(--font-family-main); /* Apply to fleet-item */
+}
+
+.fleet-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.fleet-item .info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-family: var(--font-family-main); /* Apply to info */
+}
+
+.more-fleet {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--font-family-main); /* Apply to more-fleet */
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1; /* Pushes the footer down */
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 5vw 5vw;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: var(--font-family-main); /* Apply to footer */
+}
+
+.footer .logo {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-family: var(--font-family-main); /* Apply to logo */
+}
+
+.footer .contact a {
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-family-main); /* Apply to contact a */
+}
+
+.footer .social-icons a {
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    font-family: var(--font-family-main); /* Apply to social-icons a */
+}
+
+.footer .column {
+    width: 100%;
+    margin: 1rem 0;
+    font-family: var(--font-family-main); /* Apply to column */
+}
+
+.footer .column h4 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-family: var(--font-family-main); /* Apply to h4 */
+}
+
+.footer .column a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-family: var(--font-family-main); /* Apply to column a */
+}
+
+.footer .scroll-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: var(--font-family-main); /* Apply to scroll-up */
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .banner-section {
+        min-height: 90vh; /* Increased height for larger screens */
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2rem; /* Consistent margin on larger screens */
+        font-family: var(--font-family-main); /* Apply to banner-section */
+    }
+
+    .banner-section .booking-widget {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300px;
+        margin: 0;
+    }
+
+    .how-it-works .step {
+        display: inline-block;
+        width: 33.33%;
+        margin: 0;
+        font-family: var(--font-family-main); /* Apply to step */
+    }
+
+    .arrow {
+        display: inline-block;
+        font-size: 2rem;
+        color: var(--primary-color);
+        font-family: var(--font-family-main); /* Apply to arrow */
+    }
+
+    .our-services .service-item {
+        display: inline-block;
+        width: 31%;
+        margin: 0 1%;
+        font-family: var(--font-family-main); /* Apply to service-item */
+    }
+
+    .our-fleet .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-family-main); /* Apply to header */
+    }
+
+    .our-fleet .fleet-item {
+        display: inline-block;
+        width: 31%;
+        margin: 0 1%;
+        font-family: var(--font-family-main); /* Apply to fleet-item */
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to right, #1a1a1a, #2e2e2e); /* Dark gradient background */
+        color: white;
+        padding: 10px 20px;
+        font-family: var(--font-family-main); /* Apply to footer */
+    }
+    
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        font-family: var(--font-family-main); /* Apply to logo */
+    }
+    
+    .contact {
+        font-size: 16px;
+        color: white;
+        font-family: var(--font-family-main); /* Apply to contact */
+    }
+    
+    .contact .bi-telephone {
+        margin-right: 5px;
+    }
+    
+    .contact a {
+        color: white;
+        text-decoration: none;
+        font-family: var(--font-family-main); /* Apply to contact a */
+    }
+    
+    .social-icons {
+        display: flex;
+        align-items: center;
+    }
+    
+    .follow-text {
+        margin-right: 10px;
+        font-size: 14px;
+        color: white;
+        font-family: var(--font-family-main); /* Apply to follow-text */
+    }
+    
+    .social-icons a {
+        color: white;
+        font-size: 18px;
+        margin-left: 10px;
+        text-decoration: none;
+        font-family: var(--font-family-main); /* Apply to social-icons a */
+    }
+    
+    .social-icons a:hover {
+        color: #ccc; /* Optional: lightens color on hover */
+    }
+    
+    /* Ensure icons are properly spaced and styled */
+    .bi {
+        vertical-align: middle;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav {
+        text-align: center;
+        font-family: var(--font-family-main); /* Apply to navbar-nav */
+    }
+
+    .navbar-custom .d-flex {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+        font-family: var(--font-family-main); /* Apply to d-flex */
+    }
+
+    .login-btn {
+        width: 100%;
+        text-align: center;
+        font-family: var(--font-family-main); /* Apply to login-btn */
+    }
+}
+
+/* Language Selector Dropdown */
+.language-selector {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-family-main); /* Apply to language-selector */
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 5px;
+    font-family: var(--font-family-main); /* Apply to lang-btn */
+}
+
+.navbar-custom.scrolled .lang-btn {
+    color: #fff;
+}
+
+.lang-flag {
+    width: clamp(16px, 2vw, 20px);
+    height: auto;
+    margin-right: 5px; /* Adjusted from margin-left for consistency with design */
+}
+
+.language-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: var(--font-family-main); /* Apply to language-dropdown */
+}
+
+.language-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: black;
+    text-decoration: none;
+    font-family: var(--font-family-main); /* Apply to language-dropdown a */
+}
+
+.language-dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.language-dropdown a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.language-dropdown.show {
+    display: block; /* Shown when the class 'show' is added */
+}
+
+/* Inherited Navbar Styles Affecting Language Selector */
+.navbar-custom {
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
+    padding: 1rem 5%;
+    font-family: var(--font-family-main); /* Apply to navbar-custom */
+}
+
+.navbar-custom.scrolled {
+    background-color: #000;
+}

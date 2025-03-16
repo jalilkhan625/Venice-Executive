@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXRIDE Navbar with Scroll Effect</title>
+    <!-- Bootstrap CSS -->
+    hava<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #dc3545;
+            --spacing-unit: 1rem;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar-custom {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            padding: 1rem 5%;
+        }
+
+        .navbar-custom.scrolled {
+            background-color: #000;
+        }
+
+        .navbar-brand {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .nav-link {
+            margin-right: var(--spacing-unit);
+            color: #000 !important;
+        }
+
+        .navbar-custom.scrolled .nav-link,
+        .navbar-custom.scrolled .navbar-brand,
+        .navbar-custom.scrolled .phone-link,
+        .navbar-custom.scrolled .form-select {
+            color: #fff !important;
+        }
+
+        .phone-icon {
+            margin-right: 0.5rem;
+        }
+
+        .lang-flag {
+            width: clamp(16px, 2vw, 20px);
+            height: auto;
+            margin-left: 0.5rem;
+        }
+
+        .login-btn {
+            margin-left: var(--spacing-unit);
+            color: #000;
+            border-color: #000;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-custom.scrolled .login-btn {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            position: relative;
+            min-height: 50vh;
+            height: auto;
+            background: url('F:/New Task 2025/Venice-Executive/04/banner4.jpg') no-repeat center center/cover;
+            background-attachment: scroll;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+        }
+
+        .banner-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .banner-section .content {
+            z-index: 1;
+        }
+
+        .banner-section h1 {
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .banner-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .banner-section .btn {
+            padding: 0.8rem 1.5rem;
+        }
+
+        .banner-section .booking-widget {
+            position: static;
+            width: 90%;
+            max-width: 300px;
+            margin: 2rem auto;
+            transform: none;
+            z-index: 2;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5vw 5%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .how-it-works h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .how-it-works .step {
+            display: block;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .how-it-works .step img {
+            width: clamp(40px, 10vw, 60px);
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .how-it-works .step h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .how-it-works .step p {
+            color: #666;
+        }
+
+        .arrow {
+            display: none;
+        }
+
+        /* Our Services */
+        .our-services {
+            padding: 5vw 5%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .our-services h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .our-services .service-item {
+            display: block;
+            width: 100%;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .our-services .service-item img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            border-radius: 10px;
+        }
+
+        .our-services .service-item h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .our-services .service-item p {
+            color: #666;
+        }
+
+        /* Our Fleet */
+        .our-fleet {
+            padding: 5vw 5%;
+            text-align: center;
+            background: #fff;
+        }
+
+        .our-fleet .header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .our-fleet h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .our-fleet .more-fleet {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .our-fleet .fleet-item {
+            display: block;
+            width: 100%;
+            margin: 2rem 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .our-fleet .fleet-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .our-fleet .fleet-item h3 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .our-fleet .fleet-item .info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 5vw 5%;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer .logo {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .footer .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer .social-icons a {
+            color: #fff;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer .column {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .footer .column h4 {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        .footer .column a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer .scroll-up {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .banner-section {
+                min-height: 70vh;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .banner-section .booking-widget {
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 300px;
+                margin: 0;
+            }
+
+            .how-it-works .step {
+                display: inline-block;
+                width: 33.33%;
+                margin: 0;
+            }
+
+            .arrow {
+                display: inline-block;
+                font-size: 2rem;
+                color: var(--primary-color);
+            }
+
+            .our-services .service-item {
+                display: inline-block;
+                width: 31%;
+                margin: 0 1%;
+            }
+
+            .our-fleet .header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .our-fleet .fleet-item {
+                display: inline-block;
+                width: 31%;
+                margin: 0 1%;
+            }
+
+            .footer {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .footer .column {
+                width: calc(20% - 2rem);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .navbar-custom .d-flex {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .login-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LUXRIDE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
+                        <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                            <li><a class="dropdown-item" href="#">Home 1</a></li>
+                            <li><a class="dropdown-item" href="#">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                        <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                            <li><a class="dropdown-item" href="#">Page 1</a></li>
+                            <li><a class="dropdown-item" href="#">Page 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="fleetDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Our Fleet</a>
+                        <ul class="dropdown-menu" aria-labelledby="fleetDropdown">
+                            <li><a class="dropdown-item" href="#">Fleet 1</a></li>
+                            <li><a class="dropdown-item" href="#">Fleet 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Service 1</a></li>
+                            <li><a class="dropdown-item" href="#">Service 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                        <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                            <li><a class="dropdown-item" href="#">Blog 1</a></li>
+                            <li><a class="dropdown-item" href="#">Blog 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <div class="d-flex align-items-center">
+                    <a href="tel:+1800900122" class="nav-link d-flex align-items-center phone-icon phone-link">
+                        <i class="bi bi-telephone-fill"></i> +1800900122
+                    </a>
+                    <img src="https://flagcdn.com/w20/gb.png" alt="UK Flag" class="lang-flag">
+                    <select class="form-select lang-selector" style="width: auto;">
+                        <option value="en">En</option>
+                        <option value="fr">Fr</option>
+                    </select>
+                    <a href="#" class="btn btn-outline-primary login-btn">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner-section">
+        <div class="content">
+            <p>Where Would You Like To Go?</p>
+            <h1>A New Class Of Luxury Limo Service</h1>
+            <a href="#" class="btn btn-outline-light">View More Fleet ></a>
+        </div>
+        <div class="booking-widget">
+            <iframe src="https://executivevenice.trial.easytaxioffice.com/booking/widget?site_key=7e3f3d3085b900d598bc40543d611575" id="eto-iframe-booking-widget" allow="geolocation" width="100%" height="250" scrolling="no" frameborder="0" style="border:0;"></iframe>
+        </div>
+    </div>
+
+    <div class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="step">
+            <img src="F:/New Task 2025/Venice-Executive/04/route.svg" alt="Create Route">
+            <h3>Create Your Route</h3>
+            <p>Enter your pickup & dropoff locations or the number of hours you wish to book a car and driver for</p>
+        </div>
+        <span class="arrow">→</span>
+        <div class="step">
+            <img src="F:/New Task 2025/Venice-Executive/04/vehicle.svg" alt="Book Your Chauffeur">
+            <h3>Book your chauffeur</h3>
+            <p>You can easily make a reservation through our website, mobile app, or by contacting our customer service team.</p>
+        </div>
+        <span class="arrow">→</span>
+        <div class="step">
+            <img src="F:/New Task 2025/Venice-Executive/04/like.svg" alt="Receive Confirmation">
+            <h3>Receive a confirmation</h3>
+            <p>Your booking is received, you'll receive a confirmation email or notification with all the details of your reservation.</p>
+        </div>
+    </div>
+
+    <div class="our-services">
+        <h2>Our Services</h2>
+        <div class="service-item">
+            <img src="F:/New Task 2025/Venice-Executive/04/service7-1.jpg" alt="Travel Transfer">
+            <h3>Travel Transfer</h3>
+            <p>Once you've arrived at your destination, hotel transfer services ensure a smooth.</p>
+            <a href="#">Learn More >></a>
+        </div>
+        <div class="service-item">
+            <img src="F:/New Task 2025/Venice-Executive/04/news4.jpg" alt="Wedding Class">
+            <h3>Wedding Class</h3>
+            <p>At the heart of Wedding Class is a commitment to personalized service.</p>
+            <a href="#">Learn More >></a>
+        </div>
+        <div class="service-item">
+            <img src="F:/New Task 2025/Venice-Executive/04/service5.jpg" alt="Sprinter Class">
+            <h3>Sprinter Class</h3>
+            <p>In today's connected world, staying connected while on the move is essential.</p>
+            <a href="#">Learn More >></a>
+        </div>
+    </div>
+
+    <div class="our-fleet">
+        <div class="header">
+            <h2>Our Fleet</h2>
+            <a href="#" class="more-fleet">More Fleet >></a>
+        </div>
+        <div class="fleet-item">
+            <h3>The BMW 7 Series Sedan</h3>
+            <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
+            <img src="F:/New Task 2025/Venice-Executive/04/flee-9-min-300x139.png" alt="BMW 7 Series Sedan">
+            <div class="info">
+                <span><i class="bi bi-person-fill"></i> Passengers 4</span>
+                <span><i class="bi bi-briefcase-fill"></i> Luggage 3</span>
+            </div>
+        </div>
+        <div class="fleet-item">
+            <h3>Audi Q3 Sportback</h3>
+            <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
+            <img src="F:/New Task 2025/Venice-Executive/04/flee-8-min-300x139.png" alt="Audi Q3 Sportback">
+            <div class="info">
+                <span><i class="bi bi-person-fill"></i> Passengers 4</span>
+                <span><i class="bi bi-briefcase-fill"></i> Luggage 3</span>
+            </div>
+        </div>
+        <div class="fleet-item">
+            <h3>Electric Class</h3>
+            <p>Mercedes-Benz EQS, BMW 7 Series, Audi A8 or similar</p>
+            <img src="F:/New Task 2025/Venice-Executive/04/v-class-300x139.png" alt="Electric Class">
+            <div class="info">
+                <span><i class="bi bi-person-fill"></i> Passengers 4</span>
+                <span><i class="bi bi-briefcase-fill"></i> Luggage 2</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="logo">LUXRIDE</div>
+        <div class="contact">
+            <a href="tel:+1800900122">+1800900122</a>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-snapchat"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="column">
+            <h4>Company</h4>
+            <a href="#">About us</a>
+            <a href="#">Our offerings</a>
+            <a href="#">Newsroom</a>
+            <a href="#">Investors</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+            <a href="#">Gift cards</a>
+        </div>
+        <div class="column">
+            <h4>Top cities</h4>
+            <a href="#">New York</a>
+            <a href="#">London</a>
+            <a href="#">Berlin</a>
+            <a href="#">Los Angeles</a>
+            <a href="#">Paris</a>
+        </div>
+        <div class="column">
+            <h4>Explore</h4>
+            <a href="#">Intercity rides</a>
+            <a href="#">Limousine service</a>
+            <a href="#">Chauffeur service</a>
+            <a href="#">Private car service</a>
+            <a href="#">Ground transportation</a>
+            <a href="#">Airport transfer</a>
+        </div>
+        <div class="column">
+            <h4>Classes</h4>
+            <a href="#">Business</a>
+            <a href="#">First</a>
+            <a href="#">XL</a>
+            <a href="#">Assistant</a>
+        </div>
+        <div class="column recent-posts">
+            <h4>Recent Posts</h4>
+            <div class="post">
+                <span>April 18, 2024</span>
+                <a href="#">Escaping London for a relaxing long weekend</a>
+            </div>
+            <div class="post">
+                <span>April 18, 2024</span>
+                <a href="#">Plan the perfect NYC Memorial Day...</a>
+            </div>
+            <a href="#" class="view-all">View All New >></a>
+        </div>
+        <div class="scroll-up">
+            <i class="bi bi-arrow-up"></i>
+        </div>
+    </footer>
+
+    <!-- Iframe Resize Script -->
+    <script src="https://executivevenice.trial.easytaxioffice.com/assets/plugins/iframe-resizer/iframeResizer.min.js"></script>
+    <script>iFrameResize({log:false, targetOrigin:'*', checkOrigin:false}, "iframe#eto-iframe-booking-widget");</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        document.querySelector('.scroll-up').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollUp = document.querySelector('.scroll-up');
+            scrollUp.style.display = window.scrollY > 200 ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>
