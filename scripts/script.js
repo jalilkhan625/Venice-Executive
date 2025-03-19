@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('navbar.html', 'navbar-placeholder');
+    loadComponent('footer.html', 'footer-placeholder');
+    loadGoogleTranslateScript();
+
+    // Wait for dynamic components to load before initializing visibility checks
+    setTimeout(() => {
+        initializeSectionVisibility();
+    }, 500); // Adjust timeout if needed
+});
+
 // Function to load external HTML files
 function loadComponent(url, elementId) {
     fetch(url)
@@ -14,8 +25,35 @@ function loadComponent(url, elementId) {
             if (elementId === 'footer-placeholder') {
                 initializeFooterScroll();
             }
+
+            // Re-run visibility checks after components are loaded
+            initializeSectionVisibility();
         })
         .catch(error => console.error('Error loading component:', error));
+}
+
+// Initialize visibility checks for sections
+function initializeSectionVisibility() {
+    const sections = document.querySelectorAll('.banner-section, .how-it-works, .our-services, .our-fleet, .footer-column');
+
+    function checkVisibility() {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const isVisible = (rect.top <= windowHeight * 0.8 && rect.bottom >= 0);
+
+            if (isVisible) {
+                section.classList.add('visible');
+            } else {
+                section.classList.remove('visible');
+            }
+        });
+    }
+
+    // Check visibility on load and scroll
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility);
 }
 
 // Initialize navbar scroll behavior
@@ -74,7 +112,7 @@ function initializeLanguageSelector() {
 // Load Google Translate script dynamically only once
 function loadGoogleTranslateScript() {
     if (!window.googleTranslateLoaded) {
-        window.googleTranslateLoaded = true; // Prevent multiple loads
+        window.googleTranslateLoaded = true;
         const script = document.createElement('script');
         script.src = "https://translate.google.com/translate_a/element.js?cb=initializeGoogleTranslate";
         script.async = true;
@@ -96,7 +134,7 @@ function initializeGoogleTranslate() {
     if (!window.googleTranslateInitialized && typeof google !== 'undefined' && google.translate) {
         try {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-            window.googleTranslateInitialized = true; // Prevent multiple initializations
+            window.googleTranslateInitialized = true;
         } catch (error) {
             console.error("Google Translate initialization failed:", error);
         }
@@ -107,7 +145,7 @@ function initializeGoogleTranslate() {
 function translatePage(lang) {
     const googleTranslateFrame = document.querySelector('.goog-te-combo');
     if (googleTranslateFrame) {
-        if (googleTranslateFrame.value !== lang) { // Prevent recursion
+        if (googleTranslateFrame.value !== lang) {
             googleTranslateFrame.value = lang;
             googleTranslateFrame.dispatchEvent(new Event("change"));
         }
@@ -115,10 +153,3 @@ function translatePage(lang) {
         console.error("Google Translate dropdown not found.");
     }
 }
-
-// Load navbar, footer, and Google Translate when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('navbar.html', 'navbar-placeholder');
-    loadComponent('footer.html', 'footer-placeholder');
-    loadGoogleTranslateScript();
-});

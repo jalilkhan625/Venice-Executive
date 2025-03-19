@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+    body {
+        font-family: "DM Sans", sans-serif;
+        background-color: #fff;
+    }
+    .trip-section .col-md-4 {
+        transition: transform 0.3s ease-in-out;
+    }
+    .trip-section .col-md-4:hover {
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+    .about-image {
+        width: 100vw;
+        height: 400px;
+        object-fit: cover;
+        margin-top: 20px;
+        display: block;
+    }
+    .content-section {
+        padding: 40px 20px;
+        text-align: left;
+        background-color:white;
+        color: #1c2526;
+        margin-left: 250px; /* Added to shift content to the right */
+    }
+    .content-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .content-section p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        color: #606d71;
+        max-width: 800px;
+    }
+    .content-section ul {
+        list-style-type: none;
+        padding: 0;
+        max-width: 400px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .content-section ul li {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+        text-align: left;
+    }
+    .content-section ul li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        background-image: url('/images/tick.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #f0f2f5;
+    }
+    .stats-section {
+        background-color: #f04e44;
+        color: #fff;
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin: 0 15px;
+    }
+    .stats-section h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+    .stats-section .stat {
+        text-align: center;
+    }
+    .stats-section .stat h4 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    .stats-section .stat p {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+    .trip-section {
+        padding: 40px 20px;
+        text-align: center;
+        color: #1c2526;
+    }
+    .trip-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    .trip-section .col-md-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .trip-section img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    .trip-section h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    .trip-section p {
+        font-size: 0.9rem;
+        color: #606d71;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .how-it-works-section {
+        background-color: #1c2526;
+        color: #fff;
+        padding: 40px 20px;
+        position: relative;
+        overflow: visible;
+    }
+    .how-it-works-section .container {
+        position: relative;
+        z-index: 1;
+    }
+    .how-it-works-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    .how-it-works-section .step-list {
+        position: relative;
+        padding-left: 40px;
+    }
+    .how-it-works-section .step {
+        position: relative !important;
+        margin-bottom: 30px;
+        cursor: pointer;
+        min-height: 60px;
+        display: flex !important;
+        align-items: flex-start !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+    }
+    .how-it-works-section .step::before {
+        content: '';
+        position: absolute !important;
+        left: 11px !important;
+        top: 24px !important;
+        width: 2px !important;
+        height: calc(100% + 30px) !important;
+        background-color: #606d71 !important;
+        z-index: 1 !important;
+    }
+    .how-it-works-section .step.active::before {
+        background-color: #f04e44 !important;
+    }
+    .how-it-works-section .step:last-child::before {
+        height: 0 !important;
+    }
+    .how-it-works-section .step .icon {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 50% !important;
+        border: 2px solid #606d71 !important;
+        background-color: #1c2526 !important;
+        z-index: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .how-it-works-section .step .icon::after {
+        content: '' !important;
+        width: 8px !important;
+        height: 8px !important;
+        background-color: #fff !important;
+        border-radius: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    .how-it-works-section .step.active .icon {
+        border-color: #f04e44 !important;
+        background-color: #f04e44 !important;
+    }
+    .how-it-works-section .step h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        margin-left: 40px;
+    }
+    .how-it-works-section .step p {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+    margin: 0;
+    margin-left: 40px;
+    line-height: 1.4; /* Adjusts spacing between lines */
+    text-align: left; /* Ensures consistent alignment */
+    width: 100px; /* Fixed width for uniform alignment */
+}
+    .how-it-works-section .image-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .how-it-works-section .image-slider .image-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .how-it-works-section .image-slider img {
+        max-width: 100%;
+        height: auto;
+        flex-shrink: 0;
+        width: 100%;
+        object-fit: contain;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder" class="bg-light py-3"></div>
+
+    <!-- Single Image Section -->
+    <img src="/images/about.jpg" alt="About Image" class="about-image">
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <h2>We reimagine the way the world moves for the better</h2>
+        <p>We offer luxury chauffeur-driven airport transfers and pickups to London. Exceptional Safe, Meet and Greet. One hour of complimentary wait time and flight tracking. Professional Drivers & Vehicles. Fixed prices on airport transfers. VIP service, get your quote today!</p>
+        <ul>
+            <li>100% Luxurious Fleet</li>
+            <li>All Our Fleet Are Fully Valeted & Serviced</li>
+            <li>A Safe & Secure Journey</li>
+            <li>Comfortable And Enjoyable</li>
+            <li>Clean, Polite & Knowledgeable</li>
+        </ul>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h3>Showcase some impressive numbers.</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-4 stat">
+                            <h4>285+</h4>
+                            <p>Vehicles</p>
+                        </div>
+                        <div class="col-4 stat">
+                            <h4>97</h4>
+                            <p>Awards</p>
+                        </div>
+                        <div class="col-4 stat">
+                            <h4>13k</h4>
+                            <p>Happy Customers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trip Section -->
+    <div class="trip-section">
+        <div class="container">
+            <h2>Make Your Trip Your Way With Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <img src="/images/img-1.png" alt="Safety First Icon">
+                    <h4>Safety First</h4>
+                    <p>Both you and your shipments will travel with professional drivers. Always with the highest quality standards.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/img-2.png" alt="Prices Icon">
+                    <h4>Prices With No Surprises</h4>
+                    <p>Both you and your shipments will travel with professional drivers. Always with the highest quality standards.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="/images/img-3.png" alt="Private Travel Icon">
+                    <h4>Private Travel Solutions</h4>
+                    <p>Both you and your shipments will travel with professional drivers. Always with the highest quality standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- How It Works Section -->
+<div class="how-it-works-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>How It Works</h2>
+                <div class="step-list">
+                    <div class="step active" data-index="0">
+                        <div class="icon"></div>
+                        <h4>Create Your Route</h4>
+                        <p>Set pickup,<br>dropoff, or hours.</p>
+                    </div>
+                    <div class="step" data-index="1">
+                        <div class="icon"></div>
+                        <h4>Choose Vehicle For You</h4>
+                        <p>Pick your<br>car and driver.</p>
+                    </div>
+                    <div class="step" data-index="2">
+                        <div class="icon"></div>
+                        <h4>Enjoy The Journey</h4>
+                        <p>Relax and<br>enjoy the ride.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="image-slider">
+                    <div class="image-container">
+                        <img src="/images/first.png" alt="Create Your Route Image">
+                        <img src="/images/second.png" alt="Choose Vehicle Image">
+                        <img src="/images/third.png" alt="Enjoy The Journey Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/scripts/script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const steps = document.querySelectorAll('.how-it-works-section .step');
+        const imageContainer = document.querySelector('.how-it-works-section .image-container');
+
+        steps.forEach(step => {
+            step.addEventListener('click', () => {
+                steps.forEach(s => s.classList.remove('active'));
+                step.classList.add('active');
+                const index = step.getAttribute('data-index');
+                imageContainer.style.transform = `translateX(-${index * 100}%)`;
+            });
+        });
+    });
+    </script>
+</body>
+</html>

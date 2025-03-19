@@ -32,6 +32,28 @@
         }
         .car-info {
             margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Adds spacing between elements */
+        }
+        .car-info i {
+            font-size: 1.2rem; /* Slightly larger icons for visibility */
+        }
+        /* Custom style for the Load More button */
+        .load-more-btn {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .load-more-btn:hover {
+            background-color: #333;
         }
     </style>
 </head>
@@ -50,8 +72,9 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/1.png" alt="Car 1" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
@@ -62,8 +85,9 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/2.png" alt="Car 2" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
@@ -74,8 +98,9 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/3.png" alt="Car 3" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
@@ -86,8 +111,9 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/4.png" alt="Car 4" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
@@ -98,8 +124,9 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/5.png" alt="Car 5" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
@@ -110,13 +137,19 @@
                     <p>Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac</p>
                     <img src="/images/6.png" alt="Car 6" class="car-image">
                     <div class="car-info">
-                        <span class="me-3"><i class="bi bi-person"></i> Passengers: 4</span>
+                        <span><i class="bi bi-person"></i> Passengers: 4</span>
                         <span><i class="bi bi-suitcase"></i> Luggage: 3</span>
+                        <span><i class="bi bi-suitcase-fill"></i></span> <!-- Luggage icon -->
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Load More Button -->
+        <div class="text-center mt-4 mb-4">
+            <button class="load-more-btn">Load More</button>
+        </div>
     </div>
+    
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>

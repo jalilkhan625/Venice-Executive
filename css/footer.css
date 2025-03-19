@@ -1,0 +1,150 @@
+/* css/footer.css */
+:root {
+    --primary-color: #dc3545;
+    --spacing-unit: 1rem;
+    --font-family-main: "DM Sans", sans-serif;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #1a2a2f 50%, #000000 50%);
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+    padding: 40px 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.contact a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact i {
+    margin-right: 8px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.follow-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #00c4b4;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 20px auto 0;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.3s;
+}
+
+.footer-column.visible {
+    opacity: 1;
+}
+
+.footer-column.visible ul {
+    opacity: 1;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+}
+
+/* Media Queries for Footer */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer-column {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 20px;
+    }
+    .footer-bottom,
+    .footer-container {
+        gap: 15px;
+    }
+    .footer-column {
+        min-width: 100%;
+    }
+}

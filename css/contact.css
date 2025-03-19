@@ -1,0 +1,108 @@
+/* /css/contact.css */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.form-container h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border: none;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: none;
+    background-color: #f1f1f1;
+}
+
+.btn-submit {
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+.error {
+    color: red;
+    font-size: 0.875rem;
+    display: none;
+    margin-top: 0.25rem;
+}
+
+.container {
+    margin-top: 2rem;
+}
+
+/* Success Badge Styling */
+.success-badge {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.success-badge i {
+    font-size: 1rem;
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .form-container h1 {
+        font-size: 1.5rem;
+    }
+    .row > .col {
+        margin-bottom: 1rem;
+    }
+    .container {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .form-container {
+        padding: 3rem;
+    }
+}

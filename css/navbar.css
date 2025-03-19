@@ -1,0 +1,254 @@
+/* css/navbar.css */
+:root {
+    --primary-color: #dc3545;
+    --spacing-unit: 1rem;
+    --font-family-main: "DM Sans", sans-serif;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease;
+    padding: 1rem 5%;
+    font-family: var(--font-family-main);
+}
+
+.navbar-custom.scrolled {
+    background-color: #000; /* Black when scrolled */
+}
+
+.navbar-brand {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #000000;
+    font-family: var(--font-family-main);
+}
+
+.navbar-custom.scrolled .navbar-brand {
+    color: #fff !important; /* White when scrolled */
+}
+
+/* Default styles for navbar links */
+.navbar-nav .nav-link {
+    margin-right: var(--spacing-unit);
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    color: #000000 !important;
+}
+
+/* Hover effect for navbar links (default state - white background) */
+.navbar-nav .nav-link:hover {
+    color: #e65100;
+    background-color: rgba(230, 81, 0, 0.1);
+    border-radius: 20px;
+}
+
+/* When scrolled (black background), override hover effect */
+.navbar-custom.scrolled .navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+.navbar-custom.scrolled .navbar-nav .nav-link:hover {
+    color: #fff !important;
+    background-color: #ff4d00;
+    border-radius: 25px;
+}
+
+/* Active state for navbar links */
+.navbar-nav .nav-item .nav-link.active {
+    color: #e65100;
+    background-color: rgba(230, 81, 0, 0.1);
+    border-radius: 20px;
+}
+
+/* Dropdown toggle arrow */
+.navbar-custom .dropdown-toggle::after {
+    border: none;
+    content: '\25BC';
+    font-size: 0.7rem;
+    margin-left: 5px;
+    vertical-align: middle;
+    color: #000000;
+}
+
+.navbar-custom.scrolled .dropdown-toggle::after {
+    color: #fff;
+}
+
+.navbar-custom.scrolled .dropdown-toggle:hover::after {
+    color: #fff;
+}
+
+/* Dropdown menu */
+.navbar-custom .dropdown-menu {
+    background-color: #FFFFFF;
+    font-family: var(--font-family-main);
+    padding: 5px;
+}
+
+.navbar-custom .dropdown-item {
+    color: #000000;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for dropdown items (default state) */
+.navbar-custom .dropdown-item:hover {
+    color: #fff;
+    background-color: #ff4d00;
+    border-radius: 10px;
+}
+
+/* When scrolled, adjust dropdown item hover */
+.navbar-custom.scrolled .dropdown-menu {
+    background-color: #fff;
+}
+
+.navbar-custom.scrolled .dropdown-item:hover {
+    color: #fff;
+    background-color: #ff4d00;
+    border-radius: 10px;
+}
+
+/* Active state for dropdown items */
+.dropdown-item.active {
+    color: #e65100;
+    background-color: rgba(230, 81, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Phone link */
+.phone-link {
+    color: #000000;
+    font-family: var(--font-family-main);
+}
+
+.phone-icon {
+    margin-right: 0.5rem;
+}
+
+.navbar-custom.scrolled .phone-link {
+    color: #fff !important;
+}
+
+.navbar-custom.scrolled .phone-link:hover {
+    color: #ff4d00;
+}
+
+/* Language selector (Language-related CSS starts here) */
+.language-selector {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-family-main);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 5px;
+    font-family: var(--font-family-main);
+}
+
+.navbar-custom.scrolled .lang-btn {
+    color: #fff;
+}
+
+.navbar-custom.scrolled .lang-btn:hover {
+    color: #ff4d00;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: var(--font-family-main);
+}
+
+.language-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: black;
+    text-decoration: none;
+    font-family: var(--font-family-main);
+}
+
+.language-dropdown a:hover {
+    color: #fff;
+    background-color: #ff4d00;
+    border-radius: 5px;
+}
+
+.language-dropdown a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.language-dropdown.show {
+    display: block;
+}
+/* Language-related CSS ends here */
+
+/* Form select */
+.form-select {
+    color: #000000;
+    font-family: var(--font-family-main);
+}
+
+.navbar-custom.scrolled .form-select {
+    color: #fff !important;
+}
+
+/* Login button */
+.login-btn {
+    margin-left: var(--spacing-unit);
+    color: #000;
+    border-color: #000;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-family-main);
+}
+
+.navbar-custom.scrolled .login-btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Media queries for navbar */
+@media (max-width: 576px) {
+    .navbar-toggler {
+        border-color: #000;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-custom.scrolled .navbar-toggler {
+        border-color: #fff;
+    }
+    .navbar-custom.scrolled .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-nav {
+        text-align: center;
+    }
+    .navbar-custom .d-flex {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+    }
+    .login-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,262 @@
+/* /css/about.css */
+body {
+    font-family: "DM Sans", sans-serif;
+    background-color: #fff;
+}
+
+.trip-section .col-md-4 {
+    transition: transform 0.3s ease-in-out;
+}
+
+.trip-section .col-md-4:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.about-image {
+    width: 100vw;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 20px;
+    display: block;
+}
+
+.content-section {
+    padding: 40px 20px;
+    text-align: left;
+    background-color: white;
+    color: #1c2526;
+    margin-left: 250px; /* Added to shift content to the right */
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    color: #606d71;
+    max-width: 800px;
+}
+
+.content-section ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 400px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.content-section ul li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.content-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('/images/tick.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f0f2f5;
+}
+
+.stats-section {
+    background-color: #f04e44;
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 0 15px;
+}
+
+.stats-section h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.stats-section .stat {
+    text-align: center;
+}
+
+.stats-section .stat h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stats-section .stat p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.trip-section {
+    padding: 40px 20px;
+    text-align: center;
+    color: #1c2526;
+}
+
+.trip-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.trip-section .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trip-section img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.trip-section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.trip-section p {
+    font-size: 0.9rem;
+    color: #606d71;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.how-it-works-section {
+    background-color: #1c2526;
+    color: #fff;
+    padding: 40px 20px;
+    position: relative;
+    overflow: visible;
+}
+
+.how-it-works-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.how-it-works-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.how-it-works-section .step-list {
+    position: relative;
+    padding-left: 40px;
+}
+
+.how-it-works-section .step {
+    position: relative !important;
+    margin-bottom: 30px;
+    cursor: pointer;
+    min-height: 60px;
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+}
+
+.how-it-works-section .step::before {
+    content: '';
+    position: absolute !important;
+    left: 11px !important;
+    top: 24px !important;
+    width: 2px !important;
+    height: calc(100% + 30px) !important;
+    background-color: #606d71 !important;
+    z-index: 1 !important;
+}
+
+.how-it-works-section .step.active::before {
+    background-color: #f04e44 !important;
+}
+
+.how-it-works-section .step:last-child::before {
+    height: 0 !important;
+}
+
+.how-it-works-section .step .icon {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    border: 2px solid #606d71 !important;
+    background-color: #1c2526 !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.how-it-works-section .step .icon::after {
+    content: '' !important;
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #fff !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.how-it-works-section .step.active .icon {
+    border-color: #f04e44 !important;
+    background-color: #f04e44 !important;
+}
+
+.how-it-works-section .step h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-left: 40px;
+}
+
+.how-it-works-section .step p {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+    margin: 0;
+    margin-left: 40px;
+    line-height: 1.4; /* Adjusts spacing between lines */
+    text-align: left; /* Ensures consistent alignment */
+    width: 100px; /* Fixed width for uniform alignment */
+}
+
+.how-it-works-section .image-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.how-it-works-section .image-slider .image-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.how-it-works-section .image-slider img {
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    width: 100%;
+    object-fit: contain;
+}
